@@ -42,7 +42,7 @@ const getLogsEndpoint = (req, res) => {
       return `${log.method}\t\t${log.endpoint}\t\t${log.statuscode}\t\t${log.restime} ms\n`;
     });
 
-    const response = formattedLogs.join('');
+    const response = formattedLogs;
 
     res.status(200).json(response);
   });
@@ -53,9 +53,9 @@ const estimateCases = (req, res) => {
 
   if (req.params.returnType === 'xml') {
     res.set('Content-Type', 'text/xml');
-    return res.status(200).send(
+    return res.status(200).json(
       objectToXML({
-        '?xml version="1.0" encoding="iso-8859-1"?': null,
+        '?xml version="1.0"': null,
         response
       })
     );
