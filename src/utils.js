@@ -37,8 +37,14 @@ const severeCases = (requestedTimeInfections) => {
 };
 
 const hospitalBeds = (totalHospitalBeds, severeCasesByRequestedTime) => {
-  const availableHospitalBeds = 0.35 * totalHospitalBeds;
-  return Math.floor(availableHospitalBeds - severeCasesByRequestedTime) + 1;
+  let availableHospitalBeds = 0.35 * totalHospitalBeds;
+  availableHospitalBeds = Math.floor(
+    availableHospitalBeds - severeCasesByRequestedTime
+  );
+
+  return availableHospitalBeds < 0
+    ? availableHospitalBeds + 1
+    : availableHospitalBeds;
 };
 
 const casesForICU = (requestedTimeInfections) => {
