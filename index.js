@@ -12,6 +12,7 @@ app.use(responseTime(responseTimeHandler));
 
 pool.query(createLogsTable, () => {});
 
+// API Endpoints
 app.post('/', validateRequest, estimateCases);
 app.post('/:returnType', validateRequest, estimateCases);
 app.get('/logs', getLogsEndpoint);
