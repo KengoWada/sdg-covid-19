@@ -42,7 +42,9 @@ const getLogsEndpoint = (req, res) => {
       return `${log.method}\t\t${log.endpoint}\t\t${log.statuscode}\t\t${log.restime} ms\n`;
     });
 
-    res.status(200).json(formattedLogs.join(''));
+    const response = formattedLogs.join('');
+
+    res.status(200).json(response);
   });
 };
 
