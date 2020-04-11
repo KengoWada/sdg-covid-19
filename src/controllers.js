@@ -55,7 +55,7 @@ const estimateCases = (req, res) => {
     res.set('Content-Type', 'text/xml');
     return res.status(200).json(
       objectToXML({
-        '?xml version="1.0"': null,
+        '?xml version="1.0" ?': null,
         response
       })
     );
