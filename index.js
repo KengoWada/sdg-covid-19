@@ -13,9 +13,9 @@ app.use(responseTime(responseTimeHandler));
 pool.query(createLogsTable, () => {});
 
 // API Endpoints
-app.post('/', validateRequest, estimateCases);
-app.post('/:returnType', validateRequest, estimateCases);
-app.get('/logs', getLogsEndpoint);
+app.post('/api/v1/on-covid-19', validateRequest, estimateCases);
+app.post('/api/v1/on-covid-19/:returnType', validateRequest, estimateCases);
+app.get('/api/v1/on-covid-19/logs', getLogsEndpoint);
 
 const port = process.env.PORT || 3000;
 app.listen(port);
