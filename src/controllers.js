@@ -43,7 +43,7 @@ const getLogsEndpoint = (req, res) => {
     });
 
     res.set('Content-Type', 'text/plain');
-    res.status(200).send(formattedLogs.join(''));
+    res.status(200).json(formattedLogs.join(''));
   });
 };
 
