@@ -42,7 +42,7 @@ const getLogsEndpoint = (req, res) => {
       return `${log.method}    ${log.endpoint}    ${log.statuscode}    ${log.restime} ms\n`;
     });
 
-    res.set('Content-Type', 'text');
+    res.set('Content-Type', 'text/plain');
     res.status(200).send(formattedLogs.join(''));
   });
 };
