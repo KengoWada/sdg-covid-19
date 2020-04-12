@@ -39,12 +39,11 @@ const getLogsEndpoint = (req, res) => {
         log.restime = new Array(lengthDiff).join(' ') + log.restime;
       }
 
-      return `${log.method}\t\t${log.endpoint}\t\t${log.statuscode}\t\t${log.restime} ms\n`;
+      return `${log.method}    ${log.endpoint}    ${log.statuscode}    ${log.restime} ms\n`;
     });
 
-    const response = formattedLogs;
-
-    res.status(200).json(response);
+    res.set('Content-Type', 'text');
+    res.status(200).send(formattedLogs.join(''));
   });
 };
 
