@@ -5,7 +5,7 @@ function responseTimeHandler(req, res, time) {
     req.method,
     req.url,
     res.statusCode.toString(),
-    time.toFixed(2)
+    Math.trunc(time)
   ];
   pool.query(insertLogs, values, (err, resp) => {
     if (err) {
