@@ -12,7 +12,7 @@ const getLogsEndpoint = (req, res) => {
     const logs = resp.rows;
 
     const formattedLogs = logs.map((log) => {
-      return `${log.method}    ${log.endpoint}    ${log.statuscode}    ${log.restime}ms\n`;
+      return `${log.method}    ${log.endpoint}    ${log.statuscode}    0${log.restime}ms\n`;
     });
 
     res.set('Content-Type', 'text/plain');
